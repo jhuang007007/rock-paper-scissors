@@ -1,0 +1,67 @@
+<script>
+    //randomly return "rock", "paper", or "scissors"
+    function computerPlay() {
+        //initialize n as a random integer between 1 and 3.
+        let n = Math.floor(Math.random()*3) + 1;
+        let computerSelection = "";
+        //turn the 3 number possibilities to rock, paper, and scissors
+        switch(n) {
+            case 1:
+                computerSelection = "rock";
+                break;
+            case 2:
+                computerSelection = "paper";
+                break;
+            case 3:
+                computerSelection = "scissors";
+                break;
+            default:
+                console.log("How did this happen?");
+        }
+        return computerSelection;
+    }
+
+    //play a single round of rock paper scissors using the selections from both the player and the computer
+    function playRound() {
+        let message = "";
+        let playerSelection = window.prompt("Please enter 'rock', 'paper', or 'scissors.'");
+        let computerSelection = computerPlay();
+        if (playerSelection === computerSelection) {
+            message = `You both answered ${playerSelection}, so it's a tie!`;
+        } else if (playerSelection === "rock" && computerSelection === "paper") {
+            message = 'You lose - Paper beats rock!';
+        } else if (playerSelection === "rock" && computerSelection === "scissors") {
+            message = 'You win - Rock beats scissors!';
+        } else if (playerSelection === "scissors" && computerSelection === "rock") {
+            message = 'You lose - Rock beats scissors!';
+        } else if (playerSelection === "scissors" && computerSelection === "paper") {
+            message = 'You win - Scissors beats paper!';
+        } else if (playerSelection === "paper" && computerSelection === "rock") {
+            message = 'You lose - Paper beats rock!';
+        } else if (playerSelection === "paper" && computerSelection === "scissors") {
+            message = 'You lose - Scissors beats paper!';
+        } 
+        return message;
+    }
+
+    //calls the playRound function and tracks a best of five rounds game, reporting a winner at the end of the overall game
+    function game() {
+        let playerWins = 0;
+        let computerWins = 0;
+        while (playerWins < 3 && computerWins < 3) {
+            let currentRound = playRound();
+            console.log(currentRound);
+            if (currentRound.includes("win")) {
+                playerWins++;
+            } else if (currentRound.includes("lose")) {
+                computerWins++;
+            } 
+        }
+        if (playerWins > computerWins) {
+            console.log(`You won the game with ${playerWins} wins and ${computerWins} losses!`)
+        } else {
+            console.log(`You lost the game with ${playerWins} wins and ${computerWins} losses!`)
+        }
+    }
+    console.log(game());
+</script>
