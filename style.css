@@ -1,0 +1,29 @@
+body {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  background-color: #B9CDDA;
+}
+
+h1 {
+  font-size: 70px;
+  margin-bottom: 20px;
+}
+
+#container > div {
+  font-size: 25px;
+}
+
+#buttons {
+  display: flex;
+  justify-content: center;
+}
+button {
+  background-color: #8EAF9D;
+  font-size: 25px;
+  border-radius: 10;
+  margin: 0 10px;
+}
+
+.bold {
+  font-weight: 900;
+}
