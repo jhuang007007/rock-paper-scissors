@@ -20,8 +20,15 @@ h1 {
 button {
   background-color: #8EAF9D;
   font-size: 25px;
-  border-radius: 10;
+  border-radius: 5px;
   margin: 0 10px;
+  padding: 5px 15px;
+  border: none;
+}
+
+button:hover {
+  background-color: #668F78;
+  cursor: pointer;
 }
 
 .bold {
